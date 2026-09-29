@@ -183,13 +183,8 @@ function initCaseStudyModal() {
 
         // Action Buttons
         const githubBtn = document.getElementById('modalGithubBtn');
-        const dedicatedBtn = document.getElementById('modalDedicatedBtn');
         if (githubBtn) {
-            githubBtn.href = data.githubUrl || '#';
-        }
-        if (dedicatedBtn) {
-            const shortId = data.id.replace('-cs', '');
-            dedicatedBtn.href = `case-study-${shortId}.html`;
+            githubBtn.href = data.githubUrl || 'https://github.com/mahmoudabdelbakey';
         }
     }
 }

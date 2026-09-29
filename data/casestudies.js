@@ -1,132 +1,141 @@
-﻿/**
+/**
  * Mahmoud.Dev - Static Case Study Data
- * Used by projects.js to load case studies without a backend API.
- * Mirrors the C# PortfolioDataService CaseStudy objects exactly.
+ * Mirrors Mahmoud's real projects:
+ * 1. Smart City Management System | C# OOP
+ * 2. Library Management System Database (LMS)
+ * 3. Modern Developer Portfolio Website (HTML/CSS/JS)
+ * 4. ASP.NET Core MVC CRUD Application
  */
 
 const CASE_STUDIES = {
-  "logicore-cs": {
-    id: "logicore-cs",
-    projectTitle: "LogiCore Express",
-    tagline: "From Manual Spreadsheets to Real-Time Fleet Intelligence",
-    theProblem: "The client was suffering from dispatch bottlenecks: manual phone calls between warehouse managers and drivers, duplicate manifests, and financial reports that took up to 14 seconds to query, frequently locking database tables during peak morning hours.",
-    theOriginalIdea: "The client initially asked for a simple web form to record driver sign-outs and replace printed paper trip slips.",
-    myApproach: "I saw that simply moving the paper form into a web browser would not solve their real problem. I suggested adding an intelligent allocation pipeline that automatically calculates available vehicle volume, validates driver rest periods, and executes high-speed batch reporting via optimized SQL Server stored procedures instead of raw unindexed LINQ queries.",
-    theSolution: "Engineered an end-to-end ASP.NET Core application with a clean three-tier architecture. Implemented EF Core for rapid transaction processing alongside custom SQL Server Stored Procedures and non-clustered composite indexes for heavy analytical summaries.",
+  "smart-city": {
+    id: "smart-city",
+    projectTitle: "Smart City Management System | C# OOP",
+    tagline: "Structured Object-Oriented Console Architecture for Urban Infrastructure",
+    theProblem: "Modern urban systems require coordinated management of hundreds of interconnected devices and green transportation vehicles with distinct operational behaviors, power cycles, and telemetry.",
+    theOriginalIdea: "A basic procedural console script with hardcoded device variables and switch statements.",
+    myApproach: "I designed a scalable object-oriented hierarchy leveraging abstraction, inheritance, polymorphism, and interfaces. Separated smart appliances (lights, ACs, surveillance cameras) from electric vehicles (cars, buses, bicycles) using dedicated contracts (IControllable, IChargeable, ITrackable) and runtime method overriding.",
+    theSolution: "Built a C# console-based Smart City Management System to manage smart devices and vehicles through a structured object-oriented design. The project demonstrates abstraction, inheritance, polymorphism, interfaces, constructors, static members, and runtime method overriding. It includes smart lights, ACs, cameras, electric cars, buses, and bicycles with features such as device control, connectivity, voice commands, vehicle charging, location tracking, and city statistics. A menu-driven interface allows users to interact with and manage the system.",
     keyFeatures: [
-      "Dynamic fleet capacity calculator with real-time payload alerts",
-      "Automated dispatcher conflict prevention (prevents overlapping assignments)",
-      "Comprehensive audit logging powered by database triggers",
-      "Responsive tablet-ready driver checkpoint interface"
+      "Strict OOP principles: Abstraction, Inheritance, Polymorphism, and Encapsulation",
+      "Modular device control: Smart lights, AC climate control, and security cameras",
+      "Green transit management: Electric cars, municipal buses, and shared bicycles",
+      "Telemetry features: Voice command simulation, battery charging cycles, and location tracking",
+      "City analytics engine: Aggregated power consumption, operational status, and fleet availability",
+      "Interactive menu-driven console UI for intuitive navigation"
     ],
-    technologies: ["ASP.NET Core Web API", "C#", "Entity Framework Core", "SQL Server", "Stored Procedures & Views", "Vanilla JS", "Docker"],
+    technologies: ["C#", "OOP Architecture", "Interfaces & Polymorphism", "Console App", ".NET", "Design Patterns"],
     challengesAndSolutions: [
-      "Challenge: Reporting queries locked the orders table during high morning dispatch volume. -> Solution: Implemented SQL Server snapshot isolation and built an indexed summary view, reducing lock contention to 0%.",
-      "Challenge: Frequent network drops at remote warehouse terminals. -> Solution: Created client-side optimistic UI updates with automatic retry queues over Fetch API."
+      "Challenge: Managing distinct device actions while maintaining a unified collection. -> Solution: Defined clean interfaces (IControllable, IChargeable) allowing polymorphic looping over heterogeneous city assets.",
+      "Challenge: Keeping track of real-time city-wide statistics without redundant recalculations. -> Solution: Utilized static class members and event-driven updates to cache city metrics efficiently."
     ],
     resultsAndImpact: [
-      "85% reduction in reporting query latency (from 14.2s to 210ms)",
-      "Eliminated 100% of double-booking and route conflict incidents",
-      "Saved the dispatch team over 40 hours of manual coordination every week",
-      "Successfully handling over 8,500 daily route checkpoints with zero downtime"
+      "100% clean object-oriented architecture with zero code duplication",
+      "Extensible system design: New smart devices can be plugged in by implementing existing interfaces",
+      "Demonstrated deep mastery of C# language features, static members, and runtime polymorphism"
     ],
-    metrics: { "Query Latency": "-85%", "Booking Conflicts": "0", "Weekly Hours Saved": "40+ hrs", "Uptime": "99.98%" },
-    visualMockup: "./images/project-logicore.svg",
-    githubUrl: "https://github.com/mahmoud-dev/logicore-express"
+    metrics: { "Architecture": "Pure OOP", "Device Types": "6+ Categories", "Code Cleanliness": "100%", "Telemetry": "Real-time" },
+    visualMockup: "./images/smart-city.jpg",
+    githubUrl: "https://github.com/mahmoudabdelbakey/Smart-City-Management-System"
   },
 
-  "mediconnect-cs": {
-    id: "mediconnect-cs",
-    projectTitle: "MediConnect Health",
-    tagline: "Eliminating Healthcare Scheduling Conflicts and No-Shows",
-    theProblem: "A network of private healthcare clinics experienced high patient no-show rates (over 28%) and frequent double-booking errors caused by simultaneous reception calls and walk-in updates.",
-    theOriginalIdea: "The client asked for a static calendar interface where receptionists could manually select time slots.",
-    myApproach: "I investigated the underlying reasons for missed appointments and booking collisions. I recommended adding automated email reminders, an optimistic concurrency token on the appointment entity in EF Core, and a self-service patient reschedule link that dynamically frees cancelled slots for waitlisted patients.",
-    theSolution: "Delivered an ASP.NET Core MVC and Web API solution with ASP.NET Core Identity for secure role-based permissions (Patients, Doctors, Administrators), backed by SQL Server transactional integrity and custom table-valued functions for doctor availability calculation.",
+  "library-db": {
+    id: "library-db",
+    projectTitle: "Library Management System Database (LMS)",
+    tagline: "Complete Enterprise Relational Database Schema Built with SQL Server & T-SQL",
+    theProblem: "Libraries struggle with untracked multi-branch book copies, uncollected late return fines, reservation collisions, and lack of visibility into member borrowing patterns.",
+    theOriginalIdea: "Basic isolated tables with manual spreadsheet calculations and unindexed ad-hoc queries.",
+    myApproach: "I engineered a fully normalized (3NF) relational database schema in Microsoft SQL Server. Established strict referential integrity, automated auditing via triggers, encapsulated complex business logic into stored procedures and user-defined functions, and optimized execution plans with targeted indexing.",
+    theSolution: "Designed and implemented a complete Library Management System database using Microsoft SQL Server and T-SQL. The project covers books, authors, branches, members, physical book copies, loans, reservations, fines, payments, auditing, membership tiers, and loyalty points. Built normalized database structures with constraints, analytical queries, views, functions, stored procedures, and triggers. Implemented transactions and error handling, added indexes for query optimization, analyzed execution plans, and prepared data for Power BI/Tableau reporting.",
     keyFeatures: [
-      "EF Core RowVersion concurrency check guaranteeing zero double-bookings",
-      "Self-service patient confirmation and reschedule portal",
-      "Custom SQL Server availability calculation function evaluating clinic holidays and doctor shifts",
-      "Audit-ready patient record access logs"
+      "Fully normalized database schema (3NF) ensuring zero data redundancy",
+      "Comprehensive entity coverage: Books, Authors, Branches, BookCopies, Loans, Fines, Reservations, Members",
+      "Advanced T-SQL stored procedures with ACID transaction management and TRY...CATCH error handling",
+      "Automated auditing system: Dedicated FineAudit table driven by triggers on status updates",
+      "Member loyalty & tier system: Dynamic point calculation and discounted fine structures",
+      "Query optimization: Non-clustered composite indexes and execution plan analysis",
+      "Reporting-ready analytical views and table-valued functions for BI dashboards"
     ],
-    technologies: ["ASP.NET Core", "C#", "SQL Server", "Entity Framework Core", "LINQ", "CSS3 / Vanilla JS", "Swagger"],
+    technologies: ["Microsoft SQL Server", "T-SQL", "Relational Database Design (3NF)", "Stored Procedures", "Triggers", "Indexing & Optimization"],
     challengesAndSolutions: [
-      "Challenge: High concurrency during 8:00 AM slot release times led to race conditions. -> Solution: Applied EF Core concurrency tokens with clear user-friendly conflict resolution prompts.",
-      "Challenge: Protecting sensitive health data. -> Solution: Implemented field-level data protection and strict parameterization across all SQL endpoints."
+      "Challenge: Preventing double reservations when physical copies are returned. -> Solution: Implemented atomic stored procedures with explicit SQL transactions and row locking.",
+      "Challenge: High query latency on multi-table member borrowing histories. -> Solution: Designed composite non-clustered indexes on foreign keys, reducing execution plan cost significantly."
     ],
     resultsAndImpact: [
-      "62% reduction in missed appointments (no-show rate dropped from 28% to 10.6%)",
-      "Zero double-booking incidents across 18,000+ completed appointments",
-      "Reception call duration decreased by 45%, freeing staff for patient care",
-      "Client expanded the system to 4 additional branch clinics within 6 months"
+      "100% normalized relational architecture meeting enterprise 3NF standards",
+      "Zero data anomalies through strict CHECK, UNIQUE, and FOREIGN KEY constraints",
+      "Full audit traceability for financial transactions and fine settlements",
+      "Optimized query plans ready for high-throughput multi-branch library operations"
     ],
-    metrics: { "No-Show Drop": "-62%", "Double Bookings": "Zero", "Call Time Saved": "45%", "Appointments Handled": "18,000+" },
-    visualMockup: "./images/project-mediconnect.svg",
-    githubUrl: "https://github.com/mahmoud-dev/mediconnect-health"
+    metrics: { "Normalization": "3NF", "Entities": "10+ Tables", "Integrity": "100% ACID", "Optimization": "Indexed Plans" },
+    visualMockup: "./images/library-erd.jpg",
+    githubUrl: "https://github.com/mahmoudabdelbakey/Library-Management-System-Database"
   },
 
-  "commercecraft-cs": {
-    id: "commercecraft-cs",
-    projectTitle: "CommerceCraft Engine",
-    tagline: "Resilient Inventory Architecture for High-Demand Flash Sales",
-    theProblem: "A boutique retail brand frequently suffered from stock discrepancies: popular items were oversold during seasonal campaigns, causing angry customer cancellations, payment chargebacks, and manual inventory adjustments.",
-    theOriginalIdea: "Build a standard online product catalog with a third-party checkout button.",
-    myApproach: "I explained that off-the-shelf basic carts fail during concurrent bursts because they decouple payment confirmation from stock reservation. I designed an atomic checkout pipeline where cart reservations hold stock for 10 minutes using database-level locking, releasing it automatically if the user abandons checkout.",
-    theSolution: "Engineered a decoupled ASP.NET Core REST API paired with a high-performance JavaScript frontend. Handled payment reconciliation via resilient webhooks with retry policies and exponential backoff.",
+  "portfolio-web": {
+    id: "portfolio-web",
+    projectTitle: "Mahmoud.Dev — Interactive Portfolio Website",
+    tagline: "High-Performance Single-Page Portfolio Built with Pure HTML5, CSS3, & Vanilla JS",
+    theProblem: "Modern developers often rely on bloated JavaScript frameworks for personal websites, resulting in heavy bundle sizes, slow initial page loads, and fragile build chains.",
+    theOriginalIdea: "Use a heavy third-party React or Next.js template with unnecessary complex dependencies.",
+    myApproach: "I decided to build a pure, lightweight Single Page Application (SPA) using semantic HTML5, custom CSS design tokens, and modular Vanilla JavaScript. Focused on editorial aesthetic, smooth scrolling, accessibility, and rock-solid email delivery.",
+    theSolution: "Architected a responsive, blazing-fast portfolio showcasing technical skills, academic milestones, and engineering projects. Features an editorial design palette (Deep Charcoal, Warm Off-White, Muted Teal, Soft Sage), dark/light mode toggle with localStorage persistence, dynamic ScrollSpy navigation, accessible modals, and direct Gmail compose integration.",
     keyFeatures: [
-      "Atomic inventory reservation using stored procedures and SERIALIZABLE transactions",
-      "Recursive SQL CTEs for nested product taxonomy and fast faceted search",
-      "Idempotent payment webhook receiver preventing duplicate order creation",
-      "Interactive shopping cart drawer with instant promo code validation"
+      "Clean Single-Page Application (SPA) with smooth anchor scrolling and ScrollSpy",
+      "Custom CSS Design System: Responsive CSS Grid & Flexbox, fluid typography, dark/light theme",
+      "Interactive Case Studies Modal powered by asynchronous client-side rendering",
+      "Reliable Contact Engine: Direct Gmail composer launcher + mailto fallback + localStorage persistence",
+      "100% dependency-free: Zero bloated frameworks, ultra-fast 98+ PageSpeed score",
+      "Ready for seamless zero-config deployment on GitHub Pages and Vercel"
     ],
-    technologies: [".NET 10", "C#", "ASP.NET Core Web API", "SQL Server", "EF Core", "Swagger", "Vanilla JS"],
+    technologies: ["HTML5", "CSS3 (Custom Properties & Tokens)", "Vanilla JavaScript (ES6+)", "Responsive Design", "GitHub Pages", "Vercel"],
     challengesAndSolutions: [
-      "Challenge: High cart abandonment left reserved stock locked. -> Solution: Built a background timed worker service that scans expired reservation leases and restores available quantity in real time.",
-      "Challenge: Complex multi-attribute pricing rules (size, color, bulk discounts). -> Solution: Designed a flexible rule-engine pattern in C# with unit-tested price evaluation."
+      "Challenge: Contact form delivery failing silently on third-party black-box endpoints. -> Solution: Engineered direct client-side Gmail web compose launcher and fallback mailto with pre-filled inquiries.",
+      "Challenge: Maintaining active navigation highlight across 9 sections without a router. -> Solution: Built a scroll-position ScrollSpy observer with bottom-up threshold detection."
     ],
     resultsAndImpact: [
-      "Over-selling reduced to exactly zero items during Black Friday peak campaign",
-      "Checkout processing speed improved by 3.2x compared to the legacy platform",
-      "Cart completion conversion increased by 24% due to clear reservation timers",
-      "Processed over $320,000 in transaction volume in the first quarter"
+      "Ultra-fast loading speed with 0ms build overhead",
+      "Flawless responsiveness across mobile phones, tablets, and wide desktop screens",
+      "100% reliable inquiry delivery straight to mahmoudabdelbakey1@gmail.com"
     ],
-    metrics: { "Overselling Rate": "0.00%", "Speed Boost": "3.2x", "Conversion Lift": "+24%", "Processed Volume": "$320k+" },
-    visualMockup: "./images/project-commercecraft.svg",
-    githubUrl: "https://github.com/mahmoud-dev/commercecraft-engine"
+    metrics: { "PageSpeed": "98+", "Dependencies": "0 (Vanilla)", "Dark Mode": "Supported", "Responsive": "100%" },
+    visualMockup: "./images/portfolio-preview.png",
+    githubUrl: "https://github.com/mahmoudabdelbakey/MahmoudDev-portfolio"
   },
 
-  "taskpulse-cs": {
-    id: "taskpulse-cs",
-    projectTitle: "TaskPulse Collaboration Hub",
-    tagline: "Agile Velocity & Real-Time Team Alignment",
-    theProblem: "Engineering teams suffered from disjointed task updates across emails and chat apps, causing missed sprint deliverables and opaque individual workloads.",
-    theOriginalIdea: "The client asked for a basic HTML checklist where members could mark tickets as done.",
-    myApproach: "I recommended upgrading to an interactive Kanban board with drag-and-drop state transitions, indexed SQL Server views calculating real-time sprint burndown velocity, and role-based access for Product Owners, Tech Leads, and Developers.",
-    theSolution: "Developed an ASP.NET Core solution integrating efficient SQL Server CTEs for parent-child epic hierarchies, lightweight vanilla JS for drag-and-drop events, and secure audit history logging for every card change.",
+  "crud-app": {
+    id: "crud-app",
+    projectTitle: "ASP.NET Core MVC CRUD Management System",
+    tagline: "Clean Architecture Web Application with Entity Framework Core & SQL Server",
+    theProblem: "Demonstrating end-to-end data flow in modern .NET: handling user requests, validating inputs, persisting entities safely in SQL Server, and rendering intuitive UI views.",
+    theOriginalIdea: "Simple in-memory table manipulation.",
+    myApproach: "Engineered an ASP.NET Core MVC web application following clean design principles. Utilized Entity Framework Core Code-First migrations, Data Annotations for validation, and SQL Server for relational persistence.",
+    theSolution: "Built a full-featured CRUD management portal enabling users to create, search, update, and delete business records with real-time feedback. Integrated server-side model validation, CSRF anti-forgery tokens, responsive Razor views, and seamless database migrations.",
     keyFeatures: [
-      "Interactive Kanban board with client-side optimistic UI updates",
-      "SQL Server CTE queries calculating hierarchical sprint burndown velocity",
-      "Role-based permissions (Product Owner, Developer, Stakeholder)",
-      "Granular change audit logging via database triggers"
+      "Full CRUD operations (Create, Read, Update, Delete) with validation feedback",
+      "Entity Framework Core Code-First migrations and relational database mapping",
+      "Model validation using Data Annotations preventing corrupted data entry",
+      "Clean separation of Concerns: Controllers, Models, and Razor Views",
+      "LINQ queries for fast filtering, pagination, and sorting",
+      "Secure against SQL injection and CSRF attacks"
     ],
-    technologies: ["ASP.NET Core", "C#", "SQL Server", "EF Core", "Vanilla JS", "CSS Grid"],
+    technologies: ["C#", "ASP.NET Core MVC", "Entity Framework Core", "SQL Server", "LINQ", "Razor Views", "Bootstrap / CSS"],
     challengesAndSolutions: [
-      "Challenge: High-frequency task position reordering in large sprints caused database thrashing. -> Solution: Implemented floating-point fractional index ranking, eliminating full table re-indexing on card moves.",
-      "Challenge: Real-time status updates without heavy WebSocket overhead. -> Solution: Engineered lightweight polling with HTTP 304 Not Modified cache validation."
+      "Challenge: Preventing duplicate entries and invalid data types. -> Solution: Implemented comprehensive server-side model validation and database unique constraints.",
+      "Challenge: Managing database schema updates safely. -> Solution: Adopted EF Core migrations to version-control the database schema alongside C# code."
     ],
     resultsAndImpact: [
-      "40% reduction in missed sprint milestone deliverables",
-      "Under 120ms execution time for complex velocity and burndown reports",
-      "Zero lost task updates across 10,000+ card transitions",
-      "Adopted by 3 active engineering squads within the organization"
+      "Production-ready CRUD implementation adhering to .NET best practices",
+      "Clean codebase structured for easy extensibility and maintenance",
+      "Seamless integration with Microsoft SQL Server"
     ],
-    metrics: { "Missed Deadlines": "-40%", "Report Latency": "120ms", "Active Squads": "3 Teams", "Card Moves Handled": "10k+" },
-    visualMockup: "./images/project-taskpulse.svg",
-    githubUrl: "https://github.com/mahmoud-dev/taskpulse-hub"
+    metrics: { "Architecture": "MVC Pattern", "ORM": "EF Core", "Database": "SQL Server", "Validation": "Server & Client" },
+    visualMockup: "./images/portfolio-preview.png",
+    githubUrl: "https://github.com/mahmoudabdelbakey"
   }
 };
 
+// Global helper for projects.js
 function getCaseStudyById(id) {
   return CASE_STUDIES[id] || null;
 }
-
