@@ -46,9 +46,20 @@ function initNavigation() {
             navToggle.setAttribute('aria-expanded', isExpanded);
         });
 
-        // Close mobile menu on link click
+        // Close mobile menu on link click and smooth scroll
         links.forEach(link => {
-            link.addEventListener('click', () => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    const targetEl = document.querySelector(href);
+                    if (targetEl) {
+                        e.preventDefault();
+                        targetEl.scrollIntoView({ behavior: 'smooth' });
+                        if (window.history.pushState) {
+                            window.history.pushState(null, null, href);
+                        }
+                    }
+                }
                 if (window.innerWidth <= 1040) {
                     navLinks.classList.remove('show');
                 }
@@ -56,39 +67,50 @@ function initNavigation() {
         });
     }
 
-    // Dynamic nav active state
+    // Dynamic Single-Page ScrollSpy
+    const trackedSections = ['contact', 'whyme', 'projects', 'services', 'experience', 'skills', 'education', 'about', 'home']
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
+
     function updateActiveNav() {
-        const contactSection = document.getElementById('contact');
-        if (!contactSection) return;
+        const scrollPosition = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const fullHeight = document.documentElement.scrollHeight;
 
-        const contactTop = contactSection.offsetTop - 220;
-        const isAtContact = window.scrollY >= contactTop;
+        // Check if reached bottom of the page -> activate contact
+        if (scrollPosition + windowHeight >= fullHeight - 50) {
+            setActiveLink('#contact');
+            return;
+        }
 
-        const pathSegments = window.location.pathname.split('/');
-        const currentFile = pathSegments[pathSegments.length - 1].toLowerCase() || 'index.html';
+        // Check if near top -> activate home
+        if (scrollPosition < 150) {
+            setActiveLink('#home');
+            return;
+        }
 
+        // Check which section is in view (from bottom up)
+        for (const section of trackedSections) {
+            const sectionTop = section.offsetTop - 140;
+            if (scrollPosition >= sectionTop) {
+                setActiveLink(`#${section.id}`);
+                return;
+            }
+        }
+    }
+
+    function setActiveLink(hash) {
         links.forEach(link => {
-            const href = link.getAttribute('href');
-            if (href === '#contact') {
-                if (isAtContact) {
-                    link.classList.add('active');
-                } else {
-                    link.classList.remove('active');
-                }
-            } else if (isAtContact) {
-                link.classList.remove('active');
+            if (link.getAttribute('href') === hash) {
+                link.classList.add('active');
             } else {
-                const targetFile = href.split('#')[0].toLowerCase() || 'index.html';
-                const isMatch = (currentFile === targetFile) ||
-                                ((currentFile === '' || currentFile === 'index.html') && (targetFile === '' || targetFile === '/' || targetFile === 'index.html'));
-                if (isMatch) {
-                    link.classList.add('active');
-                } else {
-                    link.classList.remove('active');
-                }
+                link.classList.remove('active');
             }
         });
     }
+
+    // Initial check on load
+    updateActiveNav();
 }
 
 function initTheme() {

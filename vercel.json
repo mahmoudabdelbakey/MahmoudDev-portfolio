@@ -2,25 +2,22 @@
   "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/about", "destination": "/#about", "permanent": true },
+    { "source": "/education", "destination": "/#education", "permanent": true },
+    { "source": "/skills", "destination": "/#skills", "permanent": true },
+    { "source": "/experience", "destination": "/#experience", "permanent": true },
+    { "source": "/journey", "destination": "/#experience", "permanent": true },
+    { "source": "/services", "destination": "/#services", "permanent": true },
+    { "source": "/projects", "destination": "/#projects", "permanent": true },
+    { "source": "/achievements", "destination": "/#projects", "permanent": true },
+    { "source": "/impact", "destination": "/#whyme", "permanent": true },
+    { "source": "/whyme", "destination": "/#whyme", "permanent": true },
+    { "source": "/testimonials", "destination": "/#whyme", "permanent": true },
+    { "source": "/contact", "destination": "/#contact", "permanent": true }
+  ],
   "routes": [
-    { "src": "/about", "dest": "/about.html" },
-    { "src": "/education", "dest": "/education.html" },
-    { "src": "/skills", "dest": "/skills.html" },
-    { "src": "/experience", "dest": "/experience.html" },
-    { "src": "/journey", "dest": "/experience.html#journey" },
-    { "src": "/services", "dest": "/services.html" },
-    { "src": "/projects", "dest": "/projects.html" },
-    { "src": "/achievements", "dest": "/projects.html#achievements" },
-    { "src": "/impact", "dest": "/impact.html" },
-    { "src": "/whyme", "dest": "/impact.html#whyme" },
-    { "src": "/testimonials", "dest": "/impact.html#testimonials" },
-    { "src": "/contact", "dest": "/contact.html" },
-    { "src": "/thankyou", "dest": "/thankyou.html" },
-    { "src": "/case-study/logicore-cs", "dest": "/case-study-logicore.html" },
-    { "src": "/case-study/mediconnect-cs", "dest": "/case-study-mediconnect.html" },
-    { "src": "/case-study/commercecraft-cs", "dest": "/case-study-commercecraft.html" },
-    { "src": "/case-study/taskpulse-cs", "dest": "/case-study-taskpulse.html" },
-    { "src": "/case-study/(.*)", "dest": "/case-study.html?id=$1" },
-    { "src": "/(.*)", "dest": "/$1" }
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
